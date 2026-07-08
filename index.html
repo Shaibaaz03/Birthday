@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,232 +9,139 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    background:linear-gradient(135deg,#6a11cb,#2575fc);
-    color:white;
-}
-
-.container{
-    width:100%;
-    max-width:900px;
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(18px);
-    border-radius:24px;
-    padding:45px 35px;
-    text-align:center;
-    border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 20px 40px rgba(0,0,0,.25);
-}
-
-h3{
-    font-weight:400;
-    letter-spacing:2px;
-}
-
-h1{
-    margin-top:10px;
-    font-size:3rem;
-}
-
-.date{
-    margin-top:10px;
-    font-size:18px;
-}
-
-.countdown{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.card{
-    background:rgba(255,255,255,.18);
-    border-radius:20px;
-    padding:25px 15px;
-    border:1px solid rgba(255,255,255,.2);
-}
-
-.card h2{
-    font-size:3rem;
-}
-
-.card span{
-    font-size:15px;
-}
-
-#message{
-    margin-top:35px;
-    font-size:1.2rem;
-    color:#fff7a8;
-    font-weight:600;
-}
-
-footer{
-    margin-top:30px;
-    opacity:.8;
-}
-
-@media(max-width:700px){
-
-    .container{
-        padding:30px 20px;
-    }
-
-    h1{
-        font-size:2rem;
-    }
-
-    .countdown{
-        grid-template-columns:repeat(2,1fr);
-        gap:15px;
-    }
-
-    .card h2{
-        font-size:2.2rem;
-    }
-
-}
-
-@media(max-width:380px){
-
-    .countdown{
-        grid-template-columns:1fr;
-    }
-
-}
-
-</style>
-
 </head>
 
-<body>
 
-<div class="container">
+<body style="margin:0;padding:20px;min-height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#667eea,#764ba2,#ff758c);color:white;font-family:'Poppins',sans-serif;box-sizing:border-box;">
 
-<h3>🎂 COUNTDOWN FOR</h3>
 
-<h1>  Neha's ❤️Birthday</h1>
+<div style="width:100%;max-width:900px;background:rgba(255,255,255,.12);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.2);border-radius:25px;padding:45px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.25);">
 
-<p class="date">
+
+<h3 style="font-weight:400;letter-spacing:2px;opacity:.9;">
+🎂 COUNTDOWN TO
+</h3>
+
+
+<h1 style="margin-top:10px;font-size:3rem;font-weight:700;">
+Neha's ❤️ Birthday
+</h1>
+
+
+<p style="margin-top:10px;font-size:18px;color:#f8f8f8;">
 10 July 2026
 </p>
 
-<div class="countdown">
 
-<div class="card">
-<h2 id="days">00</h2>
+<div style="margin-top:45px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+
+
+<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;border:1px solid rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(0,0,0,.15);">
+<h2 id="days" style="font-size:3.2rem;margin:0;">00</h2>
 <span>Days</span>
 </div>
 
-<div class="card">
-<h2 id="hours">00</h2>
+
+<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;border:1px solid rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(0,0,0,.15);">
+<h2 id="hours" style="font-size:3.2rem;margin:0;">00</h2>
 <span>Hours</span>
 </div>
 
-<div class="card">
-<h2 id="minutes">00</h2>
+
+<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;border:1px solid rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(0,0,0,.15);">
+<h2 id="minutes" style="font-size:3.2rem;margin:0;">00</h2>
 <span>Minutes</span>
 </div>
 
-<div class="card">
-<h2 id="seconds">00</h2>
+
+<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;border:1px solid rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(0,0,0,.15);">
+<h2 id="seconds" style="font-size:3.2rem;margin:0;">00</h2>
 <span>Seconds</span>
 </div>
 
+
 </div>
 
-<div id="message">
+
+<div id="message" style="margin-top:40px;font-size:1.4rem;font-weight:600;color:#fff9c4;">
 Every second brings your special day closer...
 </div>
 
-<footer>
+
+<footer style="margin-top:40px;font-size:15px;opacity:.85;">
 Made with ❤️
 </footer>
 
+
 </div>
+
 
 
 <script>
 
 const birthday = new Date("July 10, 2026 00:00:00");
 
-const days = document.getElementById("days");
-const hours = document.getElementById("hours");
-const minutes = document.getElementById("minutes");
-const seconds = document.getElementById("seconds");
-const message = document.getElementById("message");
 
+const days=document.getElementById("days");
+const hours=document.getElementById("hours");
+const minutes=document.getElementById("minutes");
+const seconds=document.getElementById("seconds");
+const message=document.getElementById("message");
 
-// Request notification permission
 
 if("Notification" in window){
-    Notification.requestPermission();
+Notification.requestPermission();
 }
 
 
-let lastHour=null;
-
-
 const messages=[
-
-"💖 Every hour brings your birthday closer!",
-"🌸 A beautiful day is almost here!",
-"🎂 Your special day is getting closer!",
+"💖 Every hour brings your special day closer!",
+"🌸 A beautiful birthday is getting closer!",
+"🎂 The countdown continues...",
 "✨ Excitement is building!",
 "🎁 Happiness is coming soon!",
 "💕 Keep smiling!",
 "🎈 Every second matters!",
 "🥳 Celebration time is near!"
-
 ];
 
 
-function sendNotification(hoursLeft){
-
-if(Notification.permission!=="granted")
-return;
+let lastNotifiedHour=null;
 
 
-if(lastHour===hoursLeft)
-return;
+function showNotification(hoursLeft){
+
+if(!("Notification" in window)) return;
+
+if(Notification.permission!=="granted") return;
+
+if(lastNotifiedHour===hoursLeft) return;
 
 
-lastHour=hoursLeft;
+lastNotifiedHour=hoursLeft;
 
 
 let text;
 
 
-if(hoursLeft===24)
+if(hoursLeft<=0)
+text="🎉 Happy Birthday! ❤️";
+
+else if(hoursLeft===24)
 text="🎂 Only one day left!";
 
 else if(hoursLeft===12)
 text="🌙 Only 12 hours remaining!";
 
 else if(hoursLeft===1)
-text="🎉 Only ONE hour left!";
+text="🥳 Only ONE hour left!";
 
 else
 text=messages[Math.floor(Math.random()*messages.length)];
 
 
 new Notification(
-"Birthday Countdown ❤️",
+"🎂 Birthday Countdown",
 {
 body:text
 }
@@ -242,50 +150,39 @@ body:text
 }
 
 
+
 function update(){
 
 let now=new Date();
 
-let difference=birthday-now;
+let diff=birthday-now;
 
 
-if(difference<=0){
+if(diff<=0){
 
 days.innerHTML="00";
 hours.innerHTML="00";
 minutes.innerHTML="00";
 seconds.innerHTML="00";
 
+message.innerHTML="🎉 Happy Birthday! May all your dreams come true! ❤️";
 
-message.innerHTML=
-"🎉 HAPPY BIRTHDAY ❤️<br>May your day be full of happiness!";
+showNotification(0);
 
-
-sendNotification(0);
+clearInterval(timer);
 
 return;
 
 }
 
 
-let d=Math.floor(
-difference/(1000*60*60*24)
-);
+let d=Math.floor(diff/(1000*60*60*24));
 
+let h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
 
-let h=Math.floor(
-(difference%(1000*60*60*24))/(1000*60*60)
-);
+let m=Math.floor((diff%(1000*60*60))/(1000*60));
 
-
-let m=Math.floor(
-(difference%(1000*60*60))/(1000*60)
-);
-
-
-let s=Math.floor(
-(difference%(1000*60))/1000
-);
+let s=Math.floor((diff%(1000*60))/1000);
 
 
 days.innerHTML=String(d).padStart(2,"0");
@@ -294,22 +191,20 @@ minutes.innerHTML=String(m).padStart(2,"0");
 seconds.innerHTML=String(s).padStart(2,"0");
 
 
-let totalHours=Math.floor(
-difference/(1000*60*60)
-);
+let totalHours=Math.floor(diff/(1000*60*60));
 
-
-sendNotification(totalHours);
+showNotification(totalHours);
 
 }
 
 
 update();
 
-setInterval(update,1000);
+const timer=setInterval(update,1000);
 
 
 </script>
+
 
 </body>
 </html>
