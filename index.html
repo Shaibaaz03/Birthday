@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,50 +13,51 @@
 </head>
 
 
-<body style="margin:0;padding:20px;min-height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#667eea,#764ba2,#ff758c);color:white;font-family:'Poppins',sans-serif;box-sizing:border-box;">
+<body style="margin:0;padding:20px;min-height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#667eea,#764ba2,#ff758c);color:white;font-family:'Poppins',sans-serif;">
 
 
 <div style="width:100%;max-width:900px;background:rgba(255,255,255,.12);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.2);border-radius:25px;padding:45px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.25);">
 
 
-<h3 style="font-weight:400;letter-spacing:2px;opacity:.9;">
+<h3 style="font-weight:400;letter-spacing:2px;">
 🎂 COUNTDOWN TO
 </h3>
 
 
 <h1 style="margin-top:10px;font-size:3rem;font-weight:700;">
-Neha's ❤️ Birthday
+Happy Birthday ❤️
 </h1>
 
 
-<p style="margin-top:10px;font-size:18px;color:#f8f8f8;">
+<p style="margin-top:10px;font-size:18px;">
 10 July 2026
 </p>
+
 
 
 <div style="margin-top:45px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
 
 
-<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;border:1px solid rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(0,0,0,.15);">
-<h2 id="days" style="font-size:3.2rem;margin:0;">00</h2>
+<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;">
+<h2 id="days" style="font-size:3rem;margin:0;">00</h2>
 <span>Days</span>
 </div>
 
 
-<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;border:1px solid rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(0,0,0,.15);">
-<h2 id="hours" style="font-size:3.2rem;margin:0;">00</h2>
+<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;">
+<h2 id="hours" style="font-size:3rem;margin:0;">00</h2>
 <span>Hours</span>
 </div>
 
 
-<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;border:1px solid rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(0,0,0,.15);">
-<h2 id="minutes" style="font-size:3.2rem;margin:0;">00</h2>
+<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;">
+<h2 id="minutes" style="font-size:3rem;margin:0;">00</h2>
 <span>Minutes</span>
 </div>
 
 
-<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;border:1px solid rgba(255,255,255,.25);box-shadow:0 8px 20px rgba(0,0,0,.15);">
-<h2 id="seconds" style="font-size:3.2rem;margin:0;">00</h2>
+<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;">
+<h2 id="seconds" style="font-size:3rem;margin:0;">00</h2>
 <span>Seconds</span>
 </div>
 
@@ -63,21 +65,27 @@ Neha's ❤️ Birthday
 </div>
 
 
+
 <div id="message" style="margin-top:40px;font-size:1.4rem;font-weight:600;color:#fff9c4;">
-Every second brings your special day closer...
+💜 Every second brings your special day closer...
 </div>
 
 
-<footer style="margin-top:40px;font-size:15px;opacity:.85;">
+
+<footer style="margin-top:40px;opacity:.8;">
 Made with ❤️
 </footer>
 
 
+
 </div>
 
 
 
+
+
 <script>
+
 
 const birthday = new Date("July 10, 2026 00:00:00");
 
@@ -89,122 +97,224 @@ const seconds=document.getElementById("seconds");
 const message=document.getElementById("message");
 
 
+
 if("Notification" in window){
+
 Notification.requestPermission();
+
 }
 
-
-const messages=[
-"💖 Every hour brings your special day closer!",
-"🌸 A beautiful birthday is getting closer!",
-"🎂 The countdown continues...",
-"✨ Excitement is building!",
-"🎁 Happiness is coming soon!",
-"💕 Keep smiling!",
-"🎈 Every second matters!",
-"🥳 Celebration time is near!"
-];
 
 
 let lastNotifiedHour=null;
 
 
+
+const messages=[
+
+"💖 Every hour brings your special day closer!",
+"🌸 A beautiful birthday is getting closer!",
+"🎂 The countdown continues!",
+"✨ Excitement is building!",
+"🎁 Happiness is coming soon!",
+"💕 Keep smiling!",
+"🎈 Every second matters!",
+"🥳 Celebration time is near!"
+
+];
+
+
+
+
+
 function showNotification(hoursLeft){
 
-if(!("Notification" in window)) return;
 
-if(Notification.permission!=="granted") return;
+if(!("Notification" in window))
+return;
 
-if(lastNotifiedHour===hoursLeft) return;
+
+if(Notification.permission!=="granted")
+return;
+
+
+
+if(lastNotifiedHour===hoursLeft)
+return;
+
 
 
 lastNotifiedHour=hoursLeft;
 
 
+
 let text;
 
 
-if(hoursLeft<=0)
-text="🎉 Happy Birthday! ❤️";
 
-else if(hoursLeft===24)
-text="🎂 Only one day left!";
+if(hoursLeft<=0){
 
-else if(hoursLeft===12)
+text="🎉 Happy Birthday! Wishing you endless happiness ❤️";
+
+}
+
+else if(hoursLeft===24){
+
+text="🎂 Only 1 day left until your birthday!";
+
+}
+
+else if(hoursLeft===12){
+
 text="🌙 Only 12 hours remaining!";
 
-else if(hoursLeft===1)
+}
+
+else if(hoursLeft===6){
+
+text="🎁 Only 6 hours left!";
+
+}
+
+else if(hoursLeft===1){
+
 text="🥳 Only ONE hour left!";
 
-else
-text=messages[Math.floor(Math.random()*messages.length)];
+}
+
+else{
+
+text=`💖 ${hoursLeft} hours remaining until your birthday!`;
+
+}
+
+
 
 
 new Notification(
-"🎂 Birthday Countdown",
+
+"🎂 Birthday Countdown ❤️",
+
 {
-body:text
+
+body:text,
+
+icon:"https://cdn-icons-png.flaticon.com/512/869/869869.png"
+
 }
+
 );
 
+
+
 }
 
 
 
-function update(){
 
-let now=new Date();
 
-let diff=birthday-now;
+
+
+function updateCountdown(){
+
+
+
+const now=new Date();
+
+
+const diff=birthday-now;
+
 
 
 if(diff<=0){
+
 
 days.innerHTML="00";
 hours.innerHTML="00";
 minutes.innerHTML="00";
 seconds.innerHTML="00";
 
-message.innerHTML="🎉 Happy Birthday! May all your dreams come true! ❤️";
+
+message.innerHTML=
+"🎉 Happy Birthday! May all your dreams come true! ❤️";
+
 
 showNotification(0);
 
+
 clearInterval(timer);
+
 
 return;
 
+
 }
 
 
-let d=Math.floor(diff/(1000*60*60*24));
 
-let h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
 
-let m=Math.floor((diff%(1000*60*60))/(1000*60));
+const d=Math.floor(
+diff/(1000*60*60*24)
+);
 
-let s=Math.floor((diff%(1000*60))/1000);
+
+
+const h=Math.floor(
+(diff%(1000*60*60*24))/(1000*60*60)
+);
+
+
+
+const m=Math.floor(
+(diff%(1000*60*60))/(1000*60)
+);
+
+
+
+const s=Math.floor(
+(diff%(1000*60))/1000
+);
+
+
 
 
 days.innerHTML=String(d).padStart(2,"0");
+
 hours.innerHTML=String(h).padStart(2,"0");
+
 minutes.innerHTML=String(m).padStart(2,"0");
+
 seconds.innerHTML=String(s).padStart(2,"0");
 
 
-let totalHours=Math.floor(diff/(1000*60*60));
+
+
+const totalHours=Math.floor(
+diff/(1000*60*60)
+);
+
+
 
 showNotification(totalHours);
+
+
 
 }
 
 
-update();
 
-const timer=setInterval(update,1000);
+
+updateCountdown();
+
+
+const timer=setInterval(updateCountdown,1000);
+
 
 
 </script>
 
 
+
 </body>
+
 </html>
