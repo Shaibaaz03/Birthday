@@ -10,13 +10,199 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:20px;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#667eea,#764ba2,#ff758c);
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+
+.container{
+
+    width:100%;
+    max-width:900px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:25px;
+    padding:45px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+}
+
+
+h1{
+    margin-top:10px;
+    font-size:3rem;
+    font-weight:700;
+}
+
+
+.countdown{
+
+    margin-top:45px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+
+}
+
+
+.box{
+
+    background:rgba(255,255,255,.18);
+    border-radius:18px;
+    padding:25px 15px;
+
+}
+
+
+.box h2{
+
+    font-size:3rem;
+    margin:0;
+
+}
+
+
+.message{
+
+    margin-top:40px;
+    font-size:1.4rem;
+    font-weight:600;
+    color:#fff9c4;
+
+}
+
+
+footer{
+
+    margin-top:40px;
+    opacity:.8;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+body{
+
+    padding:10px;
+
+}
+
+
+.container{
+
+    padding:25px 15px;
+    border-radius:20px;
+
+}
+
+
+h1{
+
+    font-size:2rem;
+
+}
+
+
+h3{
+
+    font-size:14px;
+
+}
+
+
+p{
+
+    font-size:15px;
+
+}
+
+
+.countdown{
+
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:30px;
+
+}
+
+
+.box{
+
+    padding:18px 10px;
+
+}
+
+
+.box h2{
+
+    font-size:2rem;
+
+}
+
+
+.message{
+
+    font-size:1rem;
+    margin-top:25px;
+
+}
+
+
+footer{
+
+    margin-top:25px;
+
+}
+
+}
+
+
+/* EXTRA SMALL PHONES */
+
+@media(max-width:350px){
+
+.countdown{
+
+    grid-template-columns:1fr;
+
+}
+
+h1{
+
+    font-size:1.7rem;
+
+}
+
+}
+
+</style>
+
 </head>
 
 
-<body style="margin:0;padding:20px;min-height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#667eea,#764ba2,#ff758c);color:white;font-family:'Poppins',sans-serif;">
+<body>
 
 
-<div style="width:100%;max-width:900px;background:rgba(255,255,255,.12);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.2);border-radius:25px;padding:45px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.25);">
+<div class="container">
 
 
 <h3 style="font-weight:400;letter-spacing:2px;">
@@ -24,7 +210,7 @@
 </h3>
 
 
-<h1 style="margin-top:10px;font-size:3rem;font-weight:700;">
+<h1>
 Happy Birthday ❤️
 </h1>
 
@@ -35,29 +221,29 @@ Happy Birthday ❤️
 
 
 
-<div style="margin-top:45px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+<div class="countdown">
 
 
-<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;">
-<h2 id="days" style="font-size:3rem;margin:0;">00</h2>
+<div class="box">
+<h2 id="days">00</h2>
 <span>Days</span>
 </div>
 
 
-<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;">
-<h2 id="hours" style="font-size:3rem;margin:0;">00</h2>
+<div class="box">
+<h2 id="hours">00</h2>
 <span>Hours</span>
 </div>
 
 
-<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;">
-<h2 id="minutes" style="font-size:3rem;margin:0;">00</h2>
+<div class="box">
+<h2 id="minutes">00</h2>
 <span>Minutes</span>
 </div>
 
 
-<div style="background:rgba(255,255,255,.18);border-radius:18px;padding:25px 15px;">
-<h2 id="seconds" style="font-size:3rem;margin:0;">00</h2>
+<div class="box">
+<h2 id="seconds">00</h2>
 <span>Seconds</span>
 </div>
 
@@ -66,13 +252,13 @@ Happy Birthday ❤️
 
 
 
-<div id="message" style="margin-top:40px;font-size:1.4rem;font-weight:600;color:#fff9c4;">
+<div id="message" class="message">
 💜 Every second brings your special day closer...
 </div>
 
 
 
-<footer style="margin-top:40px;opacity:.8;">
+<footer>
 Made with ❤️
 </footer>
 
@@ -110,23 +296,6 @@ let lastNotifiedHour=null;
 
 
 
-const messages=[
-
-"💖 Every hour brings your special day closer!",
-"🌸 A beautiful birthday is getting closer!",
-"🎂 The countdown continues!",
-"✨ Excitement is building!",
-"🎁 Happiness is coming soon!",
-"💕 Keep smiling!",
-"🎈 Every second matters!",
-"🥳 Celebration time is near!"
-
-];
-
-
-
-
-
 function showNotification(hoursLeft){
 
 
@@ -138,18 +307,14 @@ if(Notification.permission!=="granted")
 return;
 
 
-
 if(lastNotifiedHour===hoursLeft)
 return;
-
 
 
 lastNotifiedHour=hoursLeft;
 
 
-
 let text;
-
 
 
 if(hoursLeft<=0){
@@ -190,7 +355,6 @@ text=`💖 ${hoursLeft} hours remaining until your birthday!`;
 
 
 
-
 new Notification(
 
 "🎂 Birthday Countdown ❤️",
@@ -206,10 +370,7 @@ icon:"https://cdn-icons-png.flaticon.com/512/869/869869.png"
 );
 
 
-
 }
-
-
 
 
 
@@ -218,9 +379,7 @@ icon:"https://cdn-icons-png.flaticon.com/512/869/869869.png"
 function updateCountdown(){
 
 
-
 const now=new Date();
-
 
 const diff=birthday-now;
 
@@ -246,7 +405,6 @@ clearInterval(timer);
 
 
 return;
-
 
 }
 
@@ -277,7 +435,6 @@ const s=Math.floor(
 
 
 
-
 days.innerHTML=String(d).padStart(2,"0");
 
 hours.innerHTML=String(h).padStart(2,"0");
@@ -285,7 +442,6 @@ hours.innerHTML=String(h).padStart(2,"0");
 minutes.innerHTML=String(m).padStart(2,"0");
 
 seconds.innerHTML=String(s).padStart(2,"0");
-
 
 
 
@@ -303,7 +459,6 @@ showNotification(totalHours);
 
 
 
-
 updateCountdown();
 
 
@@ -312,7 +467,6 @@ const timer=setInterval(updateCountdown,1000);
 
 
 </script>
-
 
 
 </body>
