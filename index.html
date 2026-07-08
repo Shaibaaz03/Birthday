@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Countdown ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    color:white;
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border-radius:24px;
+    padding:45px 35px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+h3{
+    font-weight:400;
+    letter-spacing:2px;
+}
+
+h1{
+    margin-top:10px;
+    font-size:3rem;
+}
+
+.date{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.countdown{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,.18);
+    border-radius:20px;
+    padding:25px 15px;
+    border:1px solid rgba(255,255,255,.2);
+}
+
+.card h2{
+    font-size:3rem;
+}
+
+.card span{
+    font-size:15px;
+}
+
+#message{
+    margin-top:35px;
+    font-size:1.2rem;
+    color:#fff7a8;
+    font-weight:600;
+}
+
+button{
+    margin-top:30px;
+    padding:14px 30px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:#6a11cb;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+footer{
+    margin-top:30px;
+    opacity:.8;
+}
+
+
+@media(max-width:700px){
+
+    .container{
+        padding:30px 20px;
+    }
+
+    h1{
+        font-size:2rem;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+    }
+
+    .card h2{
+        font-size:2.2rem;
+    }
+
+}
+
+
+@media(max-width:380px){
+
+    .countdown{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+<h3>🎂 COUNTDOWN TO</h3>
+
+<h1>Happy Birthday ❤️</h1>
+
+<p class="date">
+10 July 2026
+</p>
+
+
+<div class="countdown">
+
+<div class="card">
+<h2 id="days">00</h2>
+<span>Days</span>
+</div>
+
+<div class="card">
+<h2 id="hours">00</h2>
+<span>Hours</span>
+</div>
+
+<div class="card">
+<h2 id="minutes">00</h2>
+<span>Minutes</span>
+</div>
+
+<div class="card">
+<h2 id="seconds">00</h2>
+<span>Seconds</span>
+</div>
+
+</div>
+
+
+<div id="message">
+💜 Every second brings your special day closer...
+</div>
+
+
+<button onclick="testNotification()">
+🔔 Test Notification
+</button>
+
+
+<footer>
+Made with ❤️
+</footer>
+
+
+</div>
+
+
+
+<script>
+
+const birthday = new Date("July 10, 2026 00:00:00");
+
+
+const days = document.getElementById("days");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
+const message = document.getElementById("message");
+
+
+// Request notification permission
+
+if("Notification" in window){
+    Notification.requestPermission();
+}
+
+
+
+let lastHour=null;
+
+
+const messages=[
+
+"💖 Every hour brings your birthday closer!",
+"🌸 A beautiful day is almost here!",
+"🎂 Your special day is getting closer!",
+"✨ Excitement is building!",
+"🎁 Happiness is coming soon!",
+"💕 Keep smiling!",
+"🎈 Every second matters!",
+"🥳 Celebration time is near!"
+
+];
+
+
+
+function sendNotification(hoursLeft){
+
+if(Notification.permission!=="granted")
+return;
+
+
+if(lastHour===hoursLeft)
+return;
+
+
+lastHour=hoursLeft;
+
+
+let text;
+
+
+if(hoursLeft===24)
+text="🎂 Only one day left!";
+
+else if(hoursLeft===12)
+text="🌙 Only 12 hours remaining!";
+
+else if(hoursLeft===1)
+text="🎉 Only ONE hour left!";
+
+else
+text=messages[Math.floor(Math.random()*messages.length)];
+
+
+
+new Notification(
+"Birthday Countdown ❤️",
+{
+body:text
+}
+);
+
+
+}
+
+
+
+function update(){
+
+
+let now=new Date();
+
+let difference=birthday-now;
+
+
+
+if(difference<=0){
+
+days.innerHTML="00";
+hours.innerHTML="00";
+minutes.innerHTML="00";
+seconds.innerHTML="00";
+
+
+message.innerHTML=
+"🎉 HAPPY BIRTHDAY ❤️<br>May your day be full of happiness!";
+
+
+sendNotification(0);
+
+return;
+
+}
+
+
+
+let d=Math.floor(
+difference/(1000*60*60*24)
+);
+
+
+let h=Math.floor(
+(difference%(1000*60*60*24))/(1000*60*60)
+);
+
+
+let m=Math.floor(
+(difference%(1000*60*60))/(1000*60)
+);
+
+
+let s=Math.floor(
+(difference%(1000*60))/1000
+);
+
+
+
+days.innerHTML=String(d).padStart(2,"0");
+hours.innerHTML=String(h).padStart(2,"0");
+minutes.innerHTML=String(m).padStart(2,"0");
+seconds.innerHTML=String(s).padStart(2,"0");
+
+
+
+let totalHours=Math.floor(
+difference/(1000*60*60)
+);
+
+
+sendNotification(totalHours);
+
+
+
+}
+
+
+
+function testNotification(){
+
+
+if(Notification.permission!=="granted"){
+
+
+Notification.requestPermission();
+
+
+return;
+
+}
+
+
+
+new Notification(
+"🎂 Birthday Countdown",
+{
+body:"Notifications are working perfectly ❤️"
+}
+);
+
+
+}
+
+
+
+update();
+
+setInterval(update,1000);
+
+
+</script>
+
+
+</body>
+</html>
