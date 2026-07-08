@@ -83,23 +83,10 @@ h1{
     font-weight:600;
 }
 
-button{
-    margin-top:30px;
-    padding:14px 30px;
-    border:none;
-    border-radius:12px;
-    background:white;
-    color:#6a11cb;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
-}
-
 footer{
     margin-top:30px;
     opacity:.8;
 }
-
 
 @media(max-width:700px){
 
@@ -122,7 +109,6 @@ footer{
 
 }
 
-
 @media(max-width:380px){
 
     .countdown{
@@ -135,9 +121,7 @@ footer{
 
 </head>
 
-
 <body>
-
 
 <div class="container">
 
@@ -148,7 +132,6 @@ footer{
 <p class="date">
 10 July 2026
 </p>
-
 
 <div class="countdown">
 
@@ -174,30 +157,20 @@ footer{
 
 </div>
 
-
 <div id="message">
 💜 Every second brings your special day closer...
 </div>
-
-
-<button onclick="testNotification()">
-🔔 Test Notification
-</button>
-
 
 <footer>
 Made with ❤️
 </footer>
 
-
 </div>
-
 
 
 <script>
 
 const birthday = new Date("July 10, 2026 00:00:00");
-
 
 const days = document.getElementById("days");
 const hours = document.getElementById("hours");
@@ -211,7 +184,6 @@ const message = document.getElementById("message");
 if("Notification" in window){
     Notification.requestPermission();
 }
-
 
 
 let lastHour=null;
@@ -229,7 +201,6 @@ const messages=[
 "🥳 Celebration time is near!"
 
 ];
-
 
 
 function sendNotification(hoursLeft){
@@ -261,7 +232,6 @@ else
 text=messages[Math.floor(Math.random()*messages.length)];
 
 
-
 new Notification(
 "Birthday Countdown ❤️",
 {
@@ -269,18 +239,14 @@ body:text
 }
 );
 
-
 }
-
 
 
 function update(){
 
-
 let now=new Date();
 
 let difference=birthday-now;
-
 
 
 if(difference<=0){
@@ -300,7 +266,6 @@ sendNotification(0);
 return;
 
 }
-
 
 
 let d=Math.floor(
@@ -323,12 +288,10 @@ let s=Math.floor(
 );
 
 
-
 days.innerHTML=String(d).padStart(2,"0");
 hours.innerHTML=String(h).padStart(2,"0");
 minutes.innerHTML=String(m).padStart(2,"0");
 seconds.innerHTML=String(s).padStart(2,"0");
-
 
 
 let totalHours=Math.floor(
@@ -338,37 +301,7 @@ difference/(1000*60*60)
 
 sendNotification(totalHours);
 
-
-
 }
-
-
-
-function testNotification(){
-
-
-if(Notification.permission!=="granted"){
-
-
-Notification.requestPermission();
-
-
-return;
-
-}
-
-
-
-new Notification(
-"🎂 Birthday Countdown",
-{
-body:"Notifications are working perfectly ❤️"
-}
-);
-
-
-}
-
 
 
 update();
@@ -377,7 +310,6 @@ setInterval(update,1000);
 
 
 </script>
-
 
 </body>
 </html>
